@@ -26,30 +26,30 @@ Ansible controller :
 ssh -i "testkey.pem" ec2-user@ec2-3-93-201-53.compute-1.amazonaws.com![image](https://user-images.githubusercontent.com/46686521/222639627-6ac969a6-01ac-4f97-b35e-5bc89b9c2635.png)
 
 
-## Provide root privileges to all ansadmin users on all servers.
+### Provide root privileges to all ansadmin users on all servers.
 
 visudo
 ansadmin ALL ALL 
 #### UNDER ROOT USER 
 
-## Make sure that PasswordAuthentication yes in all servers under / etc/ssh/sshd_config file.
+### Make sure that PasswordAuthentication yes in all servers under / etc/ssh/sshd_config file.
 
-## restart process
+### restart process
 systemctl restart sshd
 
-## Generate ssh-keys using ssh-keygen command from ansadmin.
+### Generate ssh-keys using ssh-keygen command from ansadmin.
 
 From control node generate run `ssh-keygen` as ansadmin, it genrates pub and priv keys 
 [ansadmin@ip-172-31-31-112 .ssh]$ ls
 id_rsa  id_rsa.pub
 
 
-## Copy ssh public key using ssh-copy-id <hostname> from /home/ansadmin/.ssh/ location.
+### Copy ssh public key using ssh-copy-id <hostname> from /home/ansadmin/.ssh/ location.
 
 [ansadmin@ip-172-31-31-112 .ssh]$ ssh-copy-id 54.224.65.133
 
 
-## Add public IPS TO HOSTS AND ping 
+### Add public IPS TO HOSTS AND ping 
 
 ansible all -m ping
 
