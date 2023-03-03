@@ -55,3 +55,7 @@ ansible all -m ping
 
 
 
+## HOST key checking
+  
+  
+  ansible.cfg --- host_key_checking = False 
